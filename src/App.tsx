@@ -54,39 +54,55 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
-      <div className="flex flex-col items-center justify-center min-h-screen p-8">
-        <div className="w-full max-w-md space-y-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950 transition-all duration-700">
+      {/* Static background elements */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="relative flex flex-col items-center justify-center min-h-screen p-8">
+        <div className="w-full max-w-md space-y-8 animate-fadeIn">
           <div className="flex justify-between items-start">
-            <div className="text-center flex-1">
-              <h1 className="text-2xl font-medium text-gray-900 dark:text-white">
-                Birthday Calendar
-              </h1>
-              <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
+            <div className="text-center flex-1 ">
+              <div className="mb-4">
+                <div className="text-4xl mb-3">🎂</div>
+                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
+                  Birthday Calendar
+                </h1>
+              </div>
+              <p className="mt-3 text-gray-600 dark:text-gray-300 font-medium">
                 Convert Google Contacts to calendar
               </p>
             </div>
-            <DarkModeToggle
-              isDark={isDark}
-              onToggle={() => setIsDark(!isDark)}
+            <div className="animate-fadeIn">
+              <DarkModeToggle
+                isDark={isDark}
+                onToggle={() => setIsDark(!isDark)}
+              />
+            </div>
+          </div>
+
+          <div className="animate-slideInUp">
+            <FileUpload
+              onFileSelect={handleFileSelect}
+              isProcessing={isProcessing}
             />
           </div>
 
-          <FileUpload
-            onFileSelect={handleFileSelect}
-            isProcessing={isProcessing}
-          />
-
-          <ProcessingStatus isProcessing={isProcessing} message={message} />
+          <div className="animate-slideInUp">
+            <ProcessingStatus isProcessing={isProcessing} message={message} />
+          </div>
         </div>
-        <div className="mt-8 text-center text-sm text-gray-500 dark:text-gray-400">
-          <p>
+
+        <div className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400 animate-fadeIn">
+          <p className="backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 px-4 py-2 rounded-full border border-white/20 dark:border-gray-700/20">
             Made with ❤️ by{' '}
             <a
               href="https://github.com/EmaSuriano"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
+              className="text-blue-600 dark:text-blue-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
             >
               EmaSuriano
             </a>{' '}
@@ -97,7 +113,7 @@ function App() {
 
       <ScrollIndicator />
 
-      <div className="px-8 pb-12">
+      <div className="px-8 pb-12 relative">
         <FAQ />
       </div>
     </div>

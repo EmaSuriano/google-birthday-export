@@ -12,7 +12,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
     <div className="border-b border-gray-200 dark:border-gray-700">
       <button
         onClick={onToggle}
-        className="w-full py-4 text-left flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+        className="w-full py-4 text-left flex justify-between items-center p-1 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
       >
         <span className="font-medium text-gray-900 dark:text-white">
           {question}
