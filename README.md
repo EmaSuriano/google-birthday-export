@@ -36,6 +36,10 @@ A privacy-first, client-side web application that converts Google Contacts CSV e
   - Microsoft Outlook
   - Any standard calendar application
 
+## 🌐 Live Demo
+
+Try the app online: **[https://emasuriano.github.io/google-birthday-export](https://emasuriano.github.io/google-birthday-export)**
+
 ## 🏃‍♂️ Quick Start
 
 ### Prerequisites
@@ -70,6 +74,24 @@ yarn build
 # Preview the build
 yarn preview
 ```
+
+### Deployment
+
+The app automatically deploys to GitHub Pages when changes are pushed to the `main` branch:
+
+- **Build Process**: GitHub Actions automatically builds the project using Yarn and Vite
+- **Deployment**: The built app is deployed to GitHub Pages
+- **URL**: Available at `https://emasuriano.github.io/google-birthday-export`
+- **Updates**: New deployments happen automatically on every push to main
+
+#### Manual Deployment
+
+To deploy manually or set up your own instance:
+
+1. Fork the repository
+2. Enable GitHub Pages in your repository settings
+3. Push changes to the `main` branch
+4. The GitHub Action will automatically build and deploy
 
 ## 🏗️ Project Structure
 
