@@ -34,7 +34,7 @@ function FAQItem({ question, answer, isOpen, onToggle }: FAQItemProps) {
         </svg>
       </button>
       {isOpen && (
-        <div className="pb-4 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+        <div className="m-2 text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
           {answer}
         </div>
       )}

@@ -66,10 +66,7 @@ function App() {
               Birthday Calendar
             </h1>
           </div>
-          <DarkModeToggle
-            isDark={isDark}
-            onToggle={() => setIsDark(!isDark)}
-          />
+          <DarkModeToggle isDark={isDark} onToggle={() => setIsDark(!isDark)} />
         </header>
 
         {/* Main content */}
@@ -92,24 +89,6 @@ function App() {
             <ProcessingStatus isProcessing={isProcessing} message={message} />
           </div>
         </main>
-        
-        {/* Footer */}
-        <footer className="py-6 border-t border-gray-200 dark:border-gray-700">
-          <div className="text-center text-xs text-gray-500 dark:text-gray-400">
-            <p>
-              Made by{' '}
-              <a
-                href="https://github.com/EmaSuriano"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
-              >
-                Emanuel Suriano
-              </a>{' '}
-              • Open Source • Privacy-First
-            </p>
-          </div>
-        </footer>
       </div>
 
       <ScrollIndicator />
@@ -117,6 +96,24 @@ function App() {
       <div className="px-8 pb-12 relative">
         <FAQ />
       </div>
+
+      {/* Footer */}
+      <footer className="py-6 border-t border-gray-200 dark:border-gray-700">
+        <div className="text-center text-xs text-gray-500 dark:text-gray-400">
+          <p>
+            Made by{' '}
+            <a
+              href="https://github.com/EmaSuriano"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Emanuel Suriano
+            </a>{' '}
+            • Open Source • Privacy-First
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
