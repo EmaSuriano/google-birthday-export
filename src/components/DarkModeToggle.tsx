@@ -8,11 +8,12 @@ export function DarkModeToggle({ isDark, onToggle }: DarkModeToggleProps) {
     <button
       onClick={onToggle}
       className="
-        p-2 rounded-lg
+        p-2 rounded-full
         text-gray-600 dark:text-gray-400
         hover:text-gray-800 dark:hover:text-gray-200
         hover:bg-gray-100 dark:hover:bg-gray-800
-        transition-all duration-200
+        transition-colors duration-200
+        focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
       "
       title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >

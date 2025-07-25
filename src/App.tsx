@@ -54,61 +54,62 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-purple-50 dark:from-gray-900 dark:via-blue-950 dark:to-purple-950 transition-all duration-700">
-      {/* Static background elements */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-gradient-to-tr from-purple-400/20 to-pink-400/20 rounded-full blur-3xl"></div>
-      </div>
+    <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      <div className="flex flex-col min-h-screen p-6 max-w-4xl mx-auto">
+        {/* Header */}
+        <header className="flex items-center justify-between py-4 border-b border-gray-200 dark:border-gray-700">
+          <div className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+              <span className="text-white text-sm font-medium">🎂</span>
+            </div>
+            <h1 className="text-xl font-normal text-gray-800 dark:text-gray-200">
+              Birthday Calendar
+            </h1>
+          </div>
+          <DarkModeToggle
+            isDark={isDark}
+            onToggle={() => setIsDark(!isDark)}
+          />
+        </header>
 
-      <div className="relative flex flex-col items-center justify-center min-h-screen p-8">
-        <div className="w-full max-w-md space-y-8 animate-fadeIn">
-          <div className="flex justify-between items-start">
-            <div className="text-center flex-1 ">
-              <div className="mb-4">
-                <div className="text-4xl mb-3">🎂</div>
-                <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent dark:from-blue-400 dark:via-purple-400 dark:to-pink-400">
-                  Birthday Calendar
-                </h1>
-              </div>
-              <p className="mt-3 text-gray-600 dark:text-gray-300 font-medium">
-                Convert Google Contacts to calendar
+        {/* Main content */}
+        <main className="flex-1 flex flex-col items-center justify-center py-12">
+          <div className="w-full max-w-md space-y-6">
+            <div className="text-center space-y-2">
+              <h2 className="text-2xl font-normal text-gray-800 dark:text-gray-200">
+                Convert Google Contacts to Calendar
+              </h2>
+              <p className="text-sm text-gray-600 dark:text-gray-400">
+                Export your contacts' birthdays as a calendar file
               </p>
             </div>
-            <div className="animate-fadeIn">
-              <DarkModeToggle
-                isDark={isDark}
-                onToggle={() => setIsDark(!isDark)}
-              />
-            </div>
-          </div>
 
-          <div className="animate-slideInUp">
             <FileUpload
               onFileSelect={handleFileSelect}
               isProcessing={isProcessing}
             />
-          </div>
 
-          <div className="animate-slideInUp">
             <ProcessingStatus isProcessing={isProcessing} message={message} />
           </div>
-        </div>
-
-        <div className="mt-12 text-center text-sm text-gray-500 dark:text-gray-400 animate-fadeIn">
-          <p className="backdrop-blur-sm bg-white/30 dark:bg-gray-800/30 px-4 py-2 rounded-full border border-white/20 dark:border-gray-700/20">
-            Made with ❤️ by{' '}
-            <a
-              href="https://github.com/EmaSuriano"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 dark:text-blue-400 hover:text-purple-600 dark:hover:text-purple-400 transition-colors font-medium"
-            >
-              EmaSuriano
-            </a>{' '}
-            • Open Source • Privacy-First • Always Free
-          </p>
-        </div>
+        </main>
+        
+        {/* Footer */}
+        <footer className="py-6 border-t border-gray-200 dark:border-gray-700">
+          <div className="text-center text-xs text-gray-500 dark:text-gray-400">
+            <p>
+              Made by{' '}
+              <a
+                href="https://github.com/EmaSuriano"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                Emanuel Suriano
+              </a>{' '}
+              • Open Source • Privacy-First
+            </p>
+          </div>
+        </footer>
       </div>
 
       <ScrollIndicator />

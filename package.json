@@ -1,7 +1,16 @@
 {
-  "name": "google-birthday-export",
+  "name": "birthday-calendar",
+  "description": "Convert Google Contacts CSV export into birthday calendar ICS files",
+  "author": "Emanuel Suriano <emanuel.suriano@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://emasuriano.github.io/google-birthday-export",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EmaSuriano/google-birthday-export.git"
+  },
+  "keywords": ["birthday", "calendar", "google-contacts", "csv", "ics", "converter"],
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

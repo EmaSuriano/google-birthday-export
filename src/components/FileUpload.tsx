@@ -43,55 +43,42 @@ export function FileUpload({ onFileSelect, isProcessing }: FileUploadProps) {
   return (
     <div
       className={`
-        relative border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300 transform
-        backdrop-blur-sm
+        relative border-2 border-dashed rounded-lg p-12 text-center transition-all duration-200
         ${
           isDragOver
-            ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 scale-105 shadow-xl shadow-blue-500/20'
-            : 'border-gray-300 dark:border-gray-600 bg-white/60 dark:bg-gray-800/60'
+            ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20'
+            : 'border-gray-300 dark:border-gray-600 bg-gray-50 dark:bg-gray-800'
         }
         ${
           isProcessing
             ? 'pointer-events-none opacity-60'
-            : 'hover:border-purple-400 dark:hover:border-purple-500 hover:shadow-lg hover:scale-102'
+            : 'hover:border-gray-400 dark:hover:border-gray-500'
         }
       `}
       onDragOver={handleDragOver}
       onDragLeave={handleDragLeave}
       onDrop={handleDrop}
     >
-      {/* Static background pattern */}
-      <div className="absolute inset-0 opacity-5 dark:opacity-10">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400"></div>
-      </div>
-
-      <div className={`relative z-10 ${isDragOver ? 'animate-scaleIn' : ''}`}>
-        <div
-          className={`text-5xl mb-4 transition-transform duration-300 ${
-            isDragOver ? 'scale-110' : ''
-          }`}
-        >
-          {isDragOver ? '🎯' : '📁'}
+      <div className="relative z-10">
+        <div className="w-12 h-12 mx-auto mb-4 bg-gray-200 dark:bg-gray-700 rounded-full flex items-center justify-center">
+          <svg className="w-6 h-6 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+          </svg>
         </div>
-        <div className="space-y-3">
-          <p
-            className={`font-medium transition-colors ${
-              isDragOver
-                ? 'text-blue-600 dark:text-blue-400'
-                : 'text-gray-700 dark:text-gray-300'
-            }`}
-          >
-            {isDragOver ? 'Drop your CSV file now!' : 'Drop CSV file here'}
-          </p>
-          <p className="text-sm text-gray-500 dark:text-gray-400">or</p>
+        <div className="space-y-4">
+          <div className="space-y-1">
+            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+              {isDragOver ? 'Drop your CSV file now!' : 'Select a file or drag and drop'}
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              CSV files only
+            </p>
+          </div>
           <label
             className={`
-            inline-block px-6 py-3 text-sm font-semibold rounded-lg cursor-pointer
-            bg-gradient-to-r from-blue-600 to-purple-600 text-white
-            hover:from-blue-700 hover:to-purple-700
-            transform transition-all duration-200
-            hover:scale-105 hover:shadow-lg
-            active:scale-95
+            inline-flex items-center gap-2 px-4 py-2 text-sm font-medium rounded-md cursor-pointer
+            bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+            transition-colors duration-200
             ${isProcessing ? 'opacity-50 cursor-not-allowed' : ''}
           `}
           >
@@ -102,22 +89,10 @@ export function FileUpload({ onFileSelect, isProcessing }: FileUploadProps) {
               className="hidden"
               disabled={isProcessing}
             />
-            <span className="flex items-center gap-2">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
-                />
-              </svg>
-              Choose CSV file
-            </span>
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+            </svg>
+            Browse files
           </label>
         </div>
       </div>
